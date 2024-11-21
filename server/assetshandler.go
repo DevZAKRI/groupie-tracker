@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// fully useless UP to now
 func AssetsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/assets/" {
 		fs := http.FileServer(http.Dir("./assets"))

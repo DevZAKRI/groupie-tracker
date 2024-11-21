@@ -13,19 +13,20 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, err)
 		return
 	}
-	artistsData, err := http.Get(URL)
+	Data, err := http.Get(URL)
 	if err != nil {
 		fmt.Fprintln(w, err)
 		return
 	}
-	defer artistsData.Body.Close()
-	var artist []Artist
-	err1 := json.NewDecoder(artistsData.Body).Decode(&artist)
-	if err1 != nil {
-		fmt.Println(err1)
+	defer Data.Body.Close()
+
+	var artists Artist
+	err = json.NewDecoder(Data.Body).Decode(&artists)
+	if err != nil {
+		fmt.Println(err)
 		fmt.Fprint(w, "Error GO Away")
+		return
 	}
 
-	fmt.Println(artistsData.Body)
-	tmp.Execute(w, artist)
+	tmp.Execute(w, artists)
 }

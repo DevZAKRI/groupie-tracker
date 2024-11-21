@@ -1,10 +1,64 @@
+body {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url("../assets/background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
 .header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*background-color: #333;
+    */padding: 10px 20px;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.Title {
+    flex: 2;
+    text-align: center;
+    font-size: 3rem;
+}
+#G{
+    color: goldenrod;
+}
+#T{
+    color: pink;
+}
+
+.Title h1 {
+    color: white;
+    margin: 0;
+}
+
+.nav-items {
+    flex: 1;
+    text-align: right;
+    font-size: 50px;
+    color: aqua;
+    
+}
+
+.nav-items li {
+    display: inline;
+    margin-left: 20px;
+    color: white;
+    cursor: pointer;
 }
 
 
-.Title {
-    
-    margin-left: 200px;
-    margin-top: auto;
+.nav-items li:hover {
+    text-decoration: underline;
 }
