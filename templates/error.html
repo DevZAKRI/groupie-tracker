@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error {{.Code}} - Something Went Wrong</title>
+    <link rel="stylesheet" href="../assets/errStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Edu+AU+VIC+WA+NT+Pre:wght@700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Oops!</h1>
+    <div class="error-code"> ERROR {{.Code}}</div>
+    <p>{{.Message}}</p>
+    <div class="buttons">
+      <a href="/">Go Home</a>
+    </div>
+    <footer>
+      &copy; 2024 Zone01Oujda Groupie-Tracker | Need help? <a href="mailto:mostafazakri@gmail.com" style="color: #ffffff; text-decoration: underline;">Contact Support</a>
+    </footer>
+  </div>
+</body>
+</html>

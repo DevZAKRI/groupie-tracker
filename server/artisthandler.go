@@ -1,7 +1,6 @@
 package server
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -10,13 +9,13 @@ import (
 func ArtistHandler(w http.ResponseWriter, r *http.Request) {
 	tmp, err := template.ParseFiles("templates/artist.html")
 	if err != nil {
-		fmt.Fprintln(w, err)
+		ErrorPage(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 	idStr := r.URL.Path[8:]
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
-		fmt.Fprintln(w, err)
+		ErrorPage(w, "Page Not Found", http.StatusNotFound)
 		return
 	}
 	for _, h := range Artist {
@@ -37,10 +36,9 @@ func ArtistHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(Artist) >= id {
-
 		tmp.Execute(w, ArtistData)
 	} else {
-		http.NotFound(w, r)
+		ErrorPage(w, "Page Not Found", http.StatusNotFound)
 		return
 	}
 

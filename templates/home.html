@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie Tracker</title>
-    <link rel="icon" href="../assets/favicon.png" >
+    <link rel="icon" href="../assets/favicon.png" type="image/png">
     <link rel="stylesheet" href="../assets/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <body>
     <div class="header">
         <div class="logo-container">
-          <img class="logo" src="../assets/favicon.png" width="150px"/>
+          <img class="logo" src="../assets/favicon.png"/>
         </div>
         <div class="Title">
             <h1><span id="G">G</span>roupie <span id="T">T</span>racker</h1>
@@ -21,31 +21,23 @@
         <div class="nav-items">
           <ul>
             <a href="/"><li class="li1">Home</li></a>
-            <a href="/about"><li class="li1">About Us</li></a>
+            <a href="/about"><li class="li1">About</li></a>
           </ul>
         </div>
     </div>
 
     <div class="Displaybody">
         {{range .}}
-        <div class="card-container">
-            <div class="SingleGROUP">
-                <div class="card-front">
-                    <img src="{{.Image}}" alt="{{.Name}} image" class="img">
-                    <a href="/artist/{{.Id}}"><h2>{{.Name}}</h2></a>   
-                </div>
-                <div class="card-back">
-                    <a href="/artist/{{.Id}}"><b>{{.Name}}</b></a> 
-                    <p>Members:</p>
-                    <ul>
-                        {{range .Members}}
-                            <li>{{.}}</li>
-                        {{end}}
-                    </ul>
-                </div>
+        <div class="card-container" onclick="window.location.href='/artist/{{.Id}}'">
+            <img src="{{.Image}}" alt="{{.Name}} image" class="card-image">
+            <div class="card-info">
+                <h2>{{.Name}}</h2>
             </div>
         </div>
         {{end}}
     </div>
+    <footer class="footer">
+        <p>&copy; 2024 Groupie Tracker. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

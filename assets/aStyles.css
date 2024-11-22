@@ -1,0 +1,214 @@
+
+body {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    background-image: url("../assets/background.jpeg"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(231, 227, 227, 0.7); 
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo-container img {
+    height: 50px;
+}
+
+.Title {
+    flex: 2;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+}
+#G {
+    flex: 2;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+    color: goldenrod;
+}
+#T {
+    flex: 2;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+    color: pink;
+}
+
+.Title h1 {
+    flex: 2;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+    color: black;
+    margin: 0;
+}
+
+.nav-items {
+    flex: 1;
+    text-align: right;
+    font-size: 2rem;
+    color: aqua;
+}
+
+.nav-items li {
+    display: inline;
+    margin-left: 0px;
+    color: black;
+    cursor: pointer;
+    margin-right: 20%;
+}
+
+.nav-items a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-items a:hover {
+    text-decoration: underline;
+}
+
+
+
+.artbody {
+    flex: 1;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap; 
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.artist-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    margin-top: 20px; 
+
+}
+.artist-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #3498db;
+    flex-shrink: 0; 
+}
+
+
+.artist-name {
+    flex: 1;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    font-size: 3rem;
+    font-weight: bold;
+    color: #444;
+    padding: 20px; 
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+.artist-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif, cursive;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.details-left,
+.details-right {
+    flex: 1;
+    border: 2px solid #3498db; 
+    border-radius: 12px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.details-left ul,
+.details-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; 
+    text-align: center; 
+}
+
+.details-left li,
+.details-right li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.details-left h2,
+.details-right h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #444;
+    text-align: center;
+    border-bottom: 2px solid #3498db; 
+    padding-bottom: 5px;
+}
+
+.details-left strong,
+.details-right strong {
+    font-weight: bold;
+    color: #222;
+}
+
+
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    margin-top: auto;
+}

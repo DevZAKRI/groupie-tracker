@@ -1,19 +1,33 @@
 package server
 
 import (
-	"fmt"
 	"net/http"
+	"strings"
 )
 
-// fully useless UP to now
 func AssetsHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path == "/assets/" {
-		fs := http.FileServer(http.Dir("./assets"))
-		http.StripPrefix("/assets/", fs).ServeHTTP(w, r)
-		fmt.Fprint(w, "Access Forbiden")
-		//(w, http.StatusForbidden, "Access Forbidden")
+	if strings.HasPrefix(r.URL.Path, "/assets/") {
+		filePath := strings.TrimPrefix(r.URL.Path, "/assets/")
+		if filePath == "" || filePath == "/" {
+			ErrorPage(w, "Access Forbidden", http.StatusForbidden)
+			return
+		}
+		assetPath := "./assets/" + filePath
+		err := AssetInfo(filePath)
+		if err != "" {
+			ErrorPage(w, "Page Not Found", http.StatusNotFound)
+			return
+		}
+		http.ServeFile(w, r, assetPath)
 	} else {
-		fmt.Fprint(w, "Page Not Found")
-		//ErrorPage(w, http.StatusNotFound, "Page Not Found")
+		ErrorPage(w, "Page Not Found", http.StatusNotFound)
 	}
+}
+
+func AssetInfo(name string) string {
+	_, err := http.Dir("assets").Open(name)
+	if err != nil {
+		return "error"
+	}
+	return ""
 }

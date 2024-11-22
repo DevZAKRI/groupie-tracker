@@ -8,10 +8,11 @@ import (
 )
 
 func main() {
-	//http.HandleFunc("/assets", server.AssetsHandler)
-	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
+	http.HandleFunc("/assets/", server.AssetsHandler)
+	//http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 	http.HandleFunc("/artist/", server.ArtistHandler)
 	http.HandleFunc("/", server.HomeHandler)
+	http.HandleFunc("/about/", server.AboutHandler)
 	fmt.Print("http://localhost:8080")
 	err := http.ListenAndServe("localhost:8080", nil)
 	if err != nil {
@@ -23,12 +24,13 @@ func main() {
 func init() {
 	artistData, err := http.Get(server.URL)
 	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	defer artistData.Body.Close()
 	relationsData, err := http.Get(server.URL1)
 	if err != nil {
-		return
+		fmt.Println(err)
 	}
 	defer relationsData.Body.Close()
 

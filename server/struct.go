@@ -36,3 +36,8 @@ var ArtistData struct {
 	FirstAlbum     string
 	LocationsDates map[string][]string
 }
+
+type Error struct {
+	Code    int
+	Message string
+}
