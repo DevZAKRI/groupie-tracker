@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groupie Tracker</title>
-    <link rel="icon" href="../assets/favicon.png" type="image/png">
+    <link rel="icon" href="../assets/favicon.png" >
     <link rel="stylesheet" href="../assets/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,31 +20,31 @@
         </div>
         <div class="nav-items">
           <ul>
-            <a href="/"><li>Home</li></a>
-            <a href="/about"><li>About Us</li></a>
+            <a href="/"><li class="li1">Home</li></a>
+            <a href="/about"><li class="li1">About Us</li></a>
           </ul>
         </div>
     </div>
 
     <div class="Displaybody">
         {{range .}}
-            <div class="card-container">
-                <div class="SingleGROUP">
-                    <div class="card-front">
-                        <img src="{{.Image}}" alt="{{.Name}} image">
-                        <a href="/artist/{{.Id}}"><h2>{{.Name}}</h2></a>   
-                    </div>
-                    <div class="card-back">
-                        <a href="/artist/{{.Id}}"><b>{{.Name}}</b></a> 
-                        <p>Members:</p>
-                        <ul>
-                            {{range .Members}}
-                                <li>{{.}}</li>
-                            {{end}}
-                        </ul>
-                    </div>
+        <div class="card-container">
+            <div class="SingleGROUP">
+                <div class="card-front">
+                    <img src="{{.Image}}" alt="{{.Name}} image" class="img">
+                    <a href="/artist/{{.Id}}"><h2>{{.Name}}</h2></a>   
+                </div>
+                <div class="card-back">
+                    <a href="/artist/{{.Id}}"><b>{{.Name}}</b></a> 
+                    <p>Members:</p>
+                    <ul>
+                        {{range .Members}}
+                            <li>{{.}}</li>
+                        {{end}}
+                    </ul>
                 </div>
             </div>
+        </div>
         {{end}}
     </div>
 </body>

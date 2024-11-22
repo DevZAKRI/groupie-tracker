@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="icon" href="../assets/favicon.png" >
+    <title>artist</title>
+</head>
+<body>
+  <div class="header">
+      <div class="logo-container">
+        <img class="logo" src="../assets/favicon.png" width="150px"/>
+      </div>
+      <div class="Title">
+          <h1><span id="G">G</span>roupie <span id="T">T</span>racker</h1>
+      </div>
+      <div class="nav-items">
+        <ul>
+          <a href="/"><li class="li1">Home</li></a>
+          <a href="/about"><li class="li1">About Us</li></a>
+        </ul>
+      </div>
+  </div>
+  <div class="body">
+    
+    <div class="card-container">
+      <div class="SingleGROUP">
+        <div class="card-front">
+          <img src="{{.Image}}" alt="{{.Name}} image" class="img">
+          <h2>ID {{.Id}}</h2>
+          <h2>{{.Name}}</h2>
+          <p>Members:</p>
+            <ul>
+                {{range .Members}}
+                    <li>{{.}}</li>
+                {{end}}
+            </ul>
+            <h2>{{.CreationDate}}</h2>
+            <h2>{{.FirstAlbum}}</h2>
+            <p>location and Concerts Dates<p>
+              <ul>
+                {{range $key, $values := .LocationsDates}}
+                    <li>
+                        <strong>Location:</strong> {{$key}}
+                        <ul>
+                            {{range $values}}
+                                <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                    </li>
+                {{end}}
+            </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>
