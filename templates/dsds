@@ -28,11 +28,11 @@
         </nav>
     </header>
 
-    <div class="aboutCont" style="display: flex; flex-direction: column;  align-items: center; text-align: center; font-size: large;">
-        <h1>Groupie Tracker</h1>
+    <div class="aboutCont" style="display: flex; flex-direction: column;  align-items: center; text-align: center;">
+        <h1>About Ascii Art Web</h1>
         <section>
             <h2>Description</h2>
-            <p style="font-size: large;"> Groupie Tracker is a web application that allows users to keep track of their favorite music groups.
+            <p> Groupie Tracker is a web application that allows users to keep track of their favorite music groups.
                 Users can view a list of music groups and see details about each group.
                 The application is built using the Go programming language.</p>
         </section>

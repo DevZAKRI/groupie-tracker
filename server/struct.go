@@ -41,3 +41,14 @@ type Error struct {
 	Code    int
 	Message string
 }
+
+type Location struct {
+	Locations []string `json:"locations"`
+}
+
+type Dates struct {
+	Dates []string `json:"dates"`
+}
+
+var Locations Location
+var DatesData Dates
