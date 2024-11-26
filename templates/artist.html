@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/aStyles.css">
-    <link rel="icon" href="../assets/favicon.png" >
-    <title>artist</title>
+    <link rel="icon" href="{{.Image}}" type="image/jpeg">
+    <title>{{.Name}}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Edu+AU+VIC+WA+NT+Pre:wght@700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -31,32 +31,54 @@
             <img src="{{.Image}}" alt="{{.Name}} image" class="artist-image">
             <h1 class="artist-name">{{.Name}}</h1>
         </div>
-
         
         <div class="artist-details">
            
             <div class="details-left">
-                <h2>Members</h2>
+                <h2>Creation Date: <normal style="font-weight: lighter;">{{.CreationDate}}</normal></h2>
+                <h2>First Album: <normal style="font-weight: lighter;">{{.FirstAlbum}}</normal></h2>
+                <h2>Members:</h2>
                 <ul>
                     {{range .Members}}
-                        <li>{{.}}</li>
+                        <li style="font-weight: lighter;">{{.}}</li>
                     {{end}}
                 </ul>
             </div>
 
             
             <div class="details-right">
-                <h2>Concert Locations and Dates</h2>
+                <h2 >Concert Locations and Dates</h2>
                 <ul>
                     {{range $key, $values := .LocationsDates}}
                         <li>
                             <strong>Location:</strong> {{$key}}
                             <ul>
                                 {{range $values}}
-                                    <li>{{.}}</li>
+                                    <li style="font-weight: lighter;">{{.}}</li>
                                 {{end}}
                             </ul>
                         </li>
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+        <div class="artist-details">
+           
+            <div class="details-left">
+                <h2>Locations:</h2>
+                <ul>
+                    {{range .Loc}}
+                        <li style="font-weight: lighter;">{{.}}</li>
+                    {{end}}
+                </ul>
+            </div>
+
+            
+            <div class="details-right">
+                <h2 >Dates: </h2>
+                <ul>
+                    {{range .ConDate}}
+                        <li style="font-weight: lighter;">{{.}}</li>
                     {{end}}
                 </ul>
             </div>
@@ -68,4 +90,4 @@
     <p>&copy; 2024 Groupie Tracker. All Rights Reserved.</p>
 </footer>
 </body>
-</html>
+</html> 

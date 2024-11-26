@@ -12,8 +12,9 @@ func main() {
 	http.HandleFunc("/", server.HomeHandler)
 	http.HandleFunc("/about/", server.AboutHandler)
 	fmt.Print("http://localhost:8080")
-	err := http.ListenAndServe("localhost:8080", nil)
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
+		fmt.Println(err)
 		fmt.Println("Server Failed!!")
 	}
 

@@ -35,6 +35,7 @@ func ErrorPage(w http.ResponseWriter, messgage string, code int) {
 </html>
 
 		`)
+		return
 	}
 	w.WriteHeader(code)
 
