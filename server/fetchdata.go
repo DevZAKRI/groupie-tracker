@@ -15,10 +15,10 @@ func FetchData() {
 
 	var wg sync.WaitGroup
 	wg.Add(4)
-	go Fetch(urlArtist, Artist, &wg)
-	go Fetch(urlLoc, Locations, &wg)
-	go Fetch(urlDate, DatesData, &wg)
-	go Fetch(urlRelation, Relation, &wg)
+	go Fetch(urlArtist, &Artist, &wg)
+	go Fetch(urlLoc, &Locations, &wg)
+	go Fetch(urlDate, &DatesData, &wg)
+	go Fetch(urlRelation, &Relation, &wg)
 	wg.Wait()
 }
 
@@ -30,10 +30,11 @@ func Fetch(url string, data interface{}, wg *sync.WaitGroup) {
 	}
 	defer resp.Body.Close()
 
-	err = json.NewDecoder(resp.Body).Decode(&data)
+	err = json.NewDecoder(resp.Body).Decode(data)
 	if err != nil {
 		fmt.Println("Error decoding data")
 		return
 	}
 	wg.Done()
+
 }

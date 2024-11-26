@@ -6,6 +6,10 @@ import (
 )
 
 func AssetsHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodPost {
+		ErrorPage(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		return
+	}
 	if strings.HasPrefix(r.URL.Path, "/assets/") {
 		filePath := strings.TrimPrefix(r.URL.Path, "/assets/")
 		if filePath == "" || filePath == "/" {

@@ -8,7 +8,13 @@ import (
 var Artist Artists
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	FetchData()
+	if r.Method == http.MethodPost {
+		ErrorPage(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		return
+	}
+	if len(Artist) == 0 {
+		FetchData()
+	}
 	switch r.URL.Path {
 	case "/":
 		tmp, err := template.ParseFiles("templates/home.html")
@@ -16,7 +22,6 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 			ErrorPage(w, "Internal Server Error", http.StatusInternalServerError)
 			return
 		}
-
 		tmp.Execute(w, Artist)
 	default:
 		ErrorPage(w, "Page Not Found", http.StatusNotFound)
