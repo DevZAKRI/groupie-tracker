@@ -50,7 +50,6 @@ func ArtistHandler(w http.ResponseWriter, r *http.Request) {
 			if err != nil {
 				fmt.Println(err)
 			}
-			fmt.Println(ArtLocations)
 			ArtistData.Loc = ArtLocations.Locations
 			err = fetch("https://groupietrackers.herokuapp.com/api/dates/"+idStr, &DatesData)
 			if err != nil {

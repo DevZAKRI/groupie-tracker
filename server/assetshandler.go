@@ -17,7 +17,7 @@ func AssetsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if strings.Contains(r.URL.Path, "/assets/") {
-		filePath := strings.TrimPrefix(r.URL.Path, r.URL.Path[:strings.Index(r.URL.Path, "/assets/")+8])
+		filePath := strings.TrimPrefix(r.URL.Path, "/assets/")
 		if filePath == "" || filePath == "/" {
 			ErrorPage(w, "Access Forbidden", http.StatusForbidden)
 			return

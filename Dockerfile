@@ -12,7 +12,7 @@ RUN go build -o groupie .
 # add labels for metadata
 LABEL maintainer="mzakri <mostafazakri3@gmail.com> || helbadao <elbadaouihoussam4@gmail.com>"
 LABEL description="Groupie-Tracker Project"
-LABEL version="1.0"
+LABEL version="1.1"
 
 # default port for the application
 EXPOSE 8080
